@@ -11,5 +11,10 @@ module GitHub
         users << from_json(:username => username)
       end
     end
+
+    def following
+      @following ||= GitHub.following(self.username)
+    end
+
   end
 end
