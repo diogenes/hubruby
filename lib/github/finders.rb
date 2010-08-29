@@ -30,6 +30,10 @@ module GitHub
       Repository.from_json(j)
     end
 
+    def branches(username, repository_name)
+      json("/repos/show/#{username}/#{repository_name}/branches", :branches)
+    end
+
     private
 
     def json(path, resource)
