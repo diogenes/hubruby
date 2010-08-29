@@ -23,5 +23,9 @@ module GitHub
     def repositories
       @repositories ||= GitHub.repositories(self.username)
     end
+
+    def watched
+      @watched ||= GitHub.watched(self.username)
+    end
   end
 end
