@@ -15,5 +15,9 @@ module GitHub
     def branches
       @branches ||= GitHub.branches(self.owner, self.name)
     end
+
+    def network
+      @network ||= GitHub.network(self.owner, self.name)
+    end
   end
 end
