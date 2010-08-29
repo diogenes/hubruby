@@ -1,0 +1,8 @@
+TODO
+
+Support to following URLs:
+  * /user/search/ <-- Search users by query
+  * /repos/show/#{username}/#{repo}/languages
+  * /repos/show/#{username}/#{repo}/contributors
+  * /repos/show/#{username}/#{repo}/collaborators
+  * /repos/search/#{escaped query}
