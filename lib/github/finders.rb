@@ -10,6 +10,11 @@ module GitHub
       User.users_from_json(j)
     end
 
+    def followers(username)
+      j = json("/user/show/#{username}/followers", :users)
+      User.users_from_json(j)
+    end
+
     private
 
     def json(path, resource)
