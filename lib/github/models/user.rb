@@ -19,5 +19,9 @@ module GitHub
     def followers
       @followers ||= GitHub.followers(self.username)
     end
+
+    def repositories
+      @repositories ||= GitHub.repositories(self.username)
+    end
   end
 end
