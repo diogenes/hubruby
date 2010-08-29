@@ -1,16 +1,15 @@
 module GitHub
   module Finders
-
     def user(username)
-      response = json("/user/show/#{username}")
-      User.from_json(response)
+      j = json("/user/show/#{username}", :user)
+      User.from_json(j)
     end
 
     private
 
-    def json(path)
-      HTTParty.get('https://github.com/api/v2/json' << path).parsed_response
+    def json(path, resource)
+      response = HTTParty.get('https://github.com/api/v2/json' << path).parsed_response
+      response[resource.to_s]
     end
-
   end # Finders
 end # GitHub
