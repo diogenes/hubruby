@@ -11,5 +11,9 @@ module GitHub
         repositories << from_json(repository_json)
       end
     end
+
+    def branches
+      @branches ||= GitHub.branches(self.owner, self.name)
+    end
   end
 end
