@@ -15,6 +15,11 @@ module GitHub
       User.users_from_json(j)
     end
 
+    def repositories(username)
+      j = json("/repos/show/#{username}", :repositories)
+      Repository.repositories_from_json(j)
+    end
+
     private
 
     def json(path, resource)
