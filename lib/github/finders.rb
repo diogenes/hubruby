@@ -34,6 +34,11 @@ module GitHub
       json("/repos/show/#{username}/#{repository_name}/branches", :branches)
     end
 
+    def network(username, repository_name)
+      j = json("/repos/show/#{username}/#{repository_name}/network", :network)
+      Repository.repositories_from_json(j)
+    end
+
     private
 
     def json(path, resource)
