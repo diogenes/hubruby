@@ -20,6 +20,11 @@ module GitHub
       Repository.repositories_from_json(j)
     end
 
+    def watched(username)
+      j = json("/repos/watched/#{username}", :repositories)
+      Repository.repositories_from_json(j)
+    end
+
     private
 
     def json(path, resource)
