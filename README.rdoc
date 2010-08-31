@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-FIX (describe your package)
+A simple Ruby library for accessing the current GitHub API (v2).
 
 == SYNOPSIS:
 
@@ -12,11 +12,11 @@ FIX (describe your package)
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* httparty
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install hubruby
 
 == LICENSE:
 
