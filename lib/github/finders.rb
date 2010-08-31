@@ -1,41 +1,41 @@
 module GitHub
   module Finders
-    def user(username)
-      j = json("/user/show/#{username}", :user)
+    def user(login)
+      j = json("/user/show/#{login}", :user)
       User.from_json(j)
     end
 
-    def following(username)
-      j = json("/user/show/#{username}/following", :users)
+    def following(login)
+      j = json("/user/show/#{login}/following", :users)
       User.users_from_json(j)
     end
 
-    def followers(username)
-      j = json("/user/show/#{username}/followers", :users)
+    def followers(login)
+      j = json("/user/show/#{login}/followers", :users)
       User.users_from_json(j)
     end
 
-    def repositories(username)
-      j = json("/repos/show/#{username}", :repositories)
+    def repositories(login)
+      j = json("/repos/show/#{login}", :repositories)
       Repository.repositories_from_json(j)
     end
 
-    def watched(username)
-      j = json("/repos/watched/#{username}", :repositories)
+    def watched(login)
+      j = json("/repos/watched/#{login}", :repositories)
       Repository.repositories_from_json(j)
     end
 
-    def repository(username, repository_name)
-      j = json("/repos/show/#{username}/#{repository_name}", :repository)
+    def repository(login, repository_name)
+      j = json("/repos/show/#{login}/#{repository_name}", :repository)
       Repository.from_json(j)
     end
 
-    def branches(username, repository_name)
-      json("/repos/show/#{username}/#{repository_name}/branches", :branches)
+    def branches(login, repository_name)
+      json("/repos/show/#{login}/#{repository_name}/branches", :branches)
     end
 
-    def network(username, repository_name)
-      j = json("/repos/show/#{username}/#{repository_name}/network", :network)
+    def network(login, repository_name)
+      j = json("/repos/show/#{login}/#{repository_name}/network", :network)
       Repository.repositories_from_json(j)
     end
 

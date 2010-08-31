@@ -7,25 +7,25 @@ module GitHub
     end
 
     def self.users_from_json(json)
-      json.inject([]) do |users, username|
-        users << from_json(:username => username)
+      json.inject([]) do |users, login|
+        users << from_json(:login => login)
       end
     end
 
     def following
-      @following ||= GitHub.following(self.username)
+      @following ||= GitHub.following(self.login)
     end
 
     def followers
-      @followers ||= GitHub.followers(self.username)
+      @followers ||= GitHub.followers(self.login)
     end
 
     def repositories
-      @repositories ||= GitHub.repositories(self.username)
+      @repositories ||= GitHub.repositories(self.login)
     end
 
     def watched
-      @watched ||= GitHub.watched(self.username)
+      @watched ||= GitHub.watched(self.login)
     end
   end
 end
