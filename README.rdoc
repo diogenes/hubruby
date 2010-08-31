@@ -8,7 +8,15 @@ A simple Ruby library for accessing the current GitHub API (v2).
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  user = GitHub.user('diogenes')
+  user.repositories
+  user.following
+  user.followers
+  user.watched
+
+  repository = GitHub.repository('aslakhellesoy', 'cucumber')
+  repository.branches
+  repository.network
 
 == REQUIREMENTS:
 
@@ -16,7 +24,7 @@ A simple Ruby library for accessing the current GitHub API (v2).
 
 == INSTALL:
 
-* sudo gem install hubruby
+  sudo gem install hubruby
 
 == LICENSE:
 
