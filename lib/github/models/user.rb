@@ -2,13 +2,13 @@ require 'ostruct'
 
 module GitHub
   class User < OpenStruct
-    def self.from_json(json)
-      new(json)
+    def self.from_hash(h)
+      new(h)
     end
 
     def self.users_from_json(json)
       json.inject([]) do |users, login|
-        users << from_json(:login => login)
+        users << from_hash(:login => login)
       end
     end
 

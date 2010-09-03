@@ -2,7 +2,7 @@ module GitHub
   module Finders
     def user(login)
       j = json("/user/show/#{login}", :user)
-      User.from_json(j)
+      User.from_hash(j)
     end
 
     def following(login)
