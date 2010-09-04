@@ -20,4 +20,8 @@ describe GitHub::Commit do
   it "should be able to show your author" do
     subject.should respond_to(:author)
   end
+
+  it "should be able to show your parents" do
+    subject.should respond_to(:parents)
+  end
 end
