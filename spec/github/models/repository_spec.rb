@@ -21,4 +21,8 @@ describe GitHub::Repository do
   it "should be able to show your network" do
     subject.should respond_to(:network)
   end
+
+  it "should be able to find one of their commit by id" do
+    subject.should respond_to(:commit)
+  end
 end
