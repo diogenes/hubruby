@@ -28,5 +28,11 @@ module GitHub
     def author
       User.from_hash(@table[:author]) if @table[:author]
     end
+
+    def parents
+      @parents ||= @table[:parents].inject([]) do |commits, parent_attrs|
+                     commits << self.repository.commit(parent_attrs['id'])
+                   end
+    end
   end # User
 end
