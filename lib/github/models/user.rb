@@ -6,8 +6,8 @@ module GitHub
       new(h)
     end
 
-    def self.users_from_json(json)
-      json.inject([]) do |users, login|
+    def self.users_from_logins(logins)
+      logins.inject([]) do |users, login|
         users << from_hash(:login => login)
       end
     end

@@ -6,13 +6,13 @@ module GitHub
     end
 
     def following(login)
-      j = json("/user/show/#{login}/following", :users)
-      User.users_from_json(j)
+      l = json("/user/show/#{login}/following", :users)
+      User.users_from_logins(l)
     end
 
     def followers(login)
-      j = json("/user/show/#{login}/followers", :users)
-      User.users_from_json(j)
+      l = json("/user/show/#{login}/followers", :users)
+      User.users_from_logins(l)
     end
 
     def repositories(login)
