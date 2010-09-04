@@ -19,5 +19,9 @@ module GitHub
     def network
       @network ||= GitHub.network(self.owner, self.name)
     end
+
+    def commit(id)
+      GitHub.commit(self.owner, self.name, id)
+    end
   end
 end
