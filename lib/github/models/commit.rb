@@ -2,13 +2,18 @@ require 'ostruct'
 
 module GitHub
   class Commit < OpenStruct
-    def self.from_hash(h)
-      new(h)
+    def initialize(repository = nil, attrs = nil)
+      super(attrs)
+      self.repository = repository
     end
 
-    def self.commits_from_hashes(h)
+    def self.from_hash(h, repository)
+      new(repository, h)
+    end
+
+    def self.commits_from_hashes(h, repository)
       h.inject([]) do |commits, commit_attrs|
-        commits << from_hash(commit_attrs)
+        commits << from_hash(commit_attrs, repository)
       end
     end
 
