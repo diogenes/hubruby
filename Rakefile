@@ -14,7 +14,7 @@ $hoe = Hoe.spec 'hubruby' do
   self.developer 'Diógenes Falcão', 'diogenes {d-o-t} araujo {at} gmail.com'
   self.rubyforge_name = self.name
   self.extra_deps     = [['httparty','= 0.6.1']]
-  self.version = '0.0.3'
+  self.version = '0.0.4'
 end
 
 require 'newgem/tasks'

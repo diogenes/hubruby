@@ -5,7 +5,7 @@ require 'rubygems'
 require 'httparty'
 
 module Hubruby
-  VERSION = '0.0.1'
+  VERSION = '0.0.4'
 
   def self.require_all
     Dir[File.join(File.dirname(__FILE__), %W(github ** *.rb))].each do |f|
