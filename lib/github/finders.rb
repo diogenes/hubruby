@@ -39,6 +39,11 @@ module GitHub
       Repository.repositories_from_hashes(j)
     end
 
+    def commits(login, repository_name, branch = 'master')
+      h = json("/commits/list/#{login}/#{repository_name}/#{branch}", :commits)
+      Commit.commits_from_hashes(h)
+    end
+
     private
 
     def json(path, resource)
