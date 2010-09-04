@@ -44,6 +44,11 @@ module GitHub
       Commit.commits_from_hashes(h)
     end
 
+    def commit(login, repository_name, commit_id)
+      h = json("/commits/show/#{login}/#{repository_name}/#{commit_id}", :commit)
+      Commit.from_hash(h)
+    end
+
     private
 
     def json(path, resource)
