@@ -6,9 +6,9 @@ module GitHub
       new(h)
     end
 
-    def self.repositories_from_json(json)
-      json.inject([]) do |repositories, repository_json|
-        repositories << from_hash(repository_json)
+    def self.repositories_from_hashes(h)
+      h.inject([]) do |repositories, repository_attrs|
+        repositories << from_hash(repository_attrs)
       end
     end
 

@@ -17,12 +17,12 @@ module GitHub
 
     def repositories(login)
       j = json("/repos/show/#{login}", :repositories)
-      Repository.repositories_from_json(j)
+      Repository.repositories_from_hashes(j)
     end
 
     def watched(login)
       j = json("/repos/watched/#{login}", :repositories)
-      Repository.repositories_from_json(j)
+      Repository.repositories_from_hashes(j)
     end
 
     def repository(login, repository_name)
@@ -36,7 +36,7 @@ module GitHub
 
     def network(login, repository_name)
       j = json("/repos/show/#{login}/#{repository_name}/network", :network)
-      Repository.repositories_from_json(j)
+      Repository.repositories_from_hashes(j)
     end
 
     private
