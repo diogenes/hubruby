@@ -27,7 +27,7 @@ module GitHub
 
     def repository(login, repository_name)
       j = json("/repos/show/#{login}/#{repository_name}", :repository)
-      Repository.from_json(j)
+      Repository.from_hash(j)
     end
 
     def branches(login, repository_name)

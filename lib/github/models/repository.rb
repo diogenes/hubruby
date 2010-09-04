@@ -2,13 +2,13 @@ require 'ostruct'
 
 module GitHub
   class Repository < OpenStruct
-    def self.from_json(json)
-      new(json)
+    def self.from_hash(h)
+      new(h)
     end
 
     def self.repositories_from_json(json)
       json.inject([]) do |repositories, repository_json|
-        repositories << from_json(repository_json)
+        repositories << from_hash(repository_json)
       end
     end
 
