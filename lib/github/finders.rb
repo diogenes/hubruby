@@ -49,6 +49,21 @@ module GitHub
       Commit.from_hash(h, Repository.new(:owner => login, :name => repository_name))
     end
 
+    def user_organizations(login)
+      h = json("/user/show/#{login}/organizations", :organizations)
+      h.collect{|o| Organization.from_hash(o) }
+    end
+
+    def organization_public_repositories(organization_name)
+      h = json("/organizations/#{organization_name}/public_repositories", :repositories)
+      h.collect{|r| Repository.from_hash(r) }
+    end
+
+    def organization_public_members(organization_name)
+      h = json("/organizations/#{organization_name}/public_members", :users)
+      h.collect{|u| User.from_hash(u) }
+    end
+
     private
 
     def json(path, resource)
