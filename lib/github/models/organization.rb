@@ -1,9 +1,6 @@
-require 'ostruct'
+require 'github/models/base_model'
 
 module GitHub
-  class Organization < OpenStruct
-    def self.from_hash(h)
-      new(h)
-    end
+  class Organization < BaseModel
   end
 end

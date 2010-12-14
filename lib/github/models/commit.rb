@@ -1,7 +1,7 @@
-require 'ostruct'
+require 'github/models/base_model'
 
 module GitHub
-  class Commit < OpenStruct
+  class Commit < BaseModel
     def initialize(repository = nil, attrs = nil)
       super(attrs)
       self.repository = repository

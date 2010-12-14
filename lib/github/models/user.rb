@@ -1,11 +1,7 @@
-require 'ostruct'
+require 'github/models/base_model'
 
 module GitHub
-  class User < OpenStruct
-    def self.from_hash(h)
-      new(h)
-    end
-
+  class User < BaseModel
     def self.users_from_logins(logins)
       logins.inject([]) do |users, login|
         users << from_hash(:login => login)

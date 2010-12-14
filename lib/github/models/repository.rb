@@ -1,11 +1,7 @@
-require 'ostruct'
+require 'github/models/base_model'
 
 module GitHub
-  class Repository < OpenStruct
-    def self.from_hash(h)
-      new(h)
-    end
-
+  class Repository < BaseModel
     def self.repositories_from_hashes(h)
       h.inject([]) do |repositories, repository_attrs|
         repositories << from_hash(repository_attrs)
