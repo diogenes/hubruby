@@ -27,5 +27,9 @@ module GitHub
     def watched
       @watched ||= GitHub.watched(self.login)
     end
+
+    def organizations
+      @organizations ||= GitHub.user_organizations(self.login)
+    end
   end
 end
