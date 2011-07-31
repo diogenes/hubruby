@@ -9,19 +9,19 @@ describe GitHub::Commit do
     subject.class.should respond_to(:commits_from_hashes)
   end
 
-  it "should be able to show your commit id" do
+  it "should be able to show its commit id" do
     subject.should respond_to(:id)
   end
 
-  it "should be able to show your commiter" do
+  it "should be able to show its commiter" do
     subject.should respond_to(:committer)
   end
 
-  it "should be able to show your author" do
+  it "should be able to show its author" do
     subject.should respond_to(:author)
   end
 
-  it "should be able to show your parents" do
+  it "should be able to show its parents" do
     subject.should respond_to(:parents)
   end
 end

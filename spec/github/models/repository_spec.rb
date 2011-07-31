@@ -1,28 +1,35 @@
 require 'spec_helper.rb'
 
 describe GitHub::Repository do
-  it "should be instantiable from a hash" do
-    subject.class.should respond_to(:from_hash)
+  subject { GitHub::Repository.new(:name => 'hubruby', :owner => 'diogenes') }
 
+  it "can be instantiated from a hash" do
     hash = {:name => 'hubruby', :owner => 'diogenes'}
 
     repo = GitHub::Repository.from_hash(hash)
     repo.name.should be_eql 'hubruby'
   end
 
-  it "should be instantiable as a collection from a hash" do
-    subject.class.should respond_to(:repositories_from_hashes)
+  it "should be instantiable from a hash collection" do
+    h = [
+      {:name => 'hubruby', :owner => 'diogenes'},
+      {:name => 'coletivo', :owner => 'diogenes'}
+    ]
+
+    repos = GitHub::Repository.repositories_from_hashes(h)
+    repos.should have(2).repositories
   end
 
-  it "should be able to show your branches" do
-    subject.should respond_to(:branches)
+  it "can show its branches" do
+    subject.branches.should_not be_empty
   end
 
-  it "should be able to show your network" do
-    subject.should respond_to(:network)
+  it "can show its network" do
+    subject.network.should_not be_empty
   end
 
-  it "should be able to find one of their commit by id" do
-    subject.should respond_to(:commit)
+  it "should be able to find a commit by id" do
+    initial_commit_id = '1ec7f79c34e3008e93b7b9210282a743f83db86d'
+    subject.commit(initial_commit_id).should_not be_nil
   end
 end

@@ -1,39 +1,33 @@
 require 'spec_helper.rb'
 
 describe GitHub::User do
-  it "should be instantiable from a hash" do
-    subject.class.should respond_to(:from_hash)
+  subject { GitHub::User.new(:login => 'diogenes') }
 
-    hash = {:name => 'Diógenes Falcão', :login => 'diogenes'}
+  it 'should be instantiable from a hash' do
+    h = {:name => 'Diógenes Falcão', :login => 'diogenes'}
 
-    user = GitHub::User.from_hash(hash)
-    user.login.should be_eql "diogenes"
+    user = GitHub::User.from_hash(h)
+    user.login.should be_eql 'diogenes'
   end
 
-  it "should be instantiable as a collection from a list of logins" do
-    subject.class.should respond_to(:users_from_logins)
-
-    logins = ['guy1', 'guy2']
-
-    users = GitHub::User.users_from_logins(logins)
-    users.first.login.should be_eql 'guy1'
-    users.last.login.should be_eql 'guy2'
-    users.size.should be_eql 2
+  it 'should be instantiable from a list of logins' do
+    users = GitHub::User.users_from_logins(['guy1', 'guy2'])
+    users.should have(2).users
   end
 
-  it "should be able to show your following users" do
-    subject.should respond_to(:following)
+  it 'should be able to show its following users' do
+    subject.following.should_not be_empty
   end
 
-  it "should be able to show your followers users" do
-    subject.should respond_to(:followers)
+  it 'should be able to show its followers users' do
+    subject.followers.should_not be_empty
   end
 
-  it "should be able to show your repositories" do
-    subject.should respond_to(:repositories)
+  it 'should be able to show its repositories' do
+    subject.repositories.should_not be_empty
   end
 
-  it "should be able to show your watched repositories" do
-    subject.should respond_to(:watched)
+  it 'should be able to show its watched repositories' do
+    subject.watched.should_not be_empty
   end
 end
