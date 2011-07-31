@@ -6,16 +6,20 @@ module GitHub
       h.map { |repository_attrs| from_hash(repository_attrs) }
     end
 
-    def branches
-      @branches ||= GitHub.branches(self.owner, self.name)
+    def owner
+      @owner ||= GitHub::User.new(@table[:owner])
     end
 
-    def network
-      @network ||= GitHub.network(self.owner, self.name)
+    def branches
+      @branches ||= GitHub.branches(self.owner.login, self.name)
+    end
+
+    def forks
+      @forks ||= GitHub.forks(self.owner.login, self.name)
     end
 
     def commit(id)
-      GitHub.commit(self.owner, self.name, id)
+      GitHub.commit(owner.login, self.name, id)
     end
   end
 end

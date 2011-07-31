@@ -29,8 +29,8 @@ describe GitHub do
     subject.should respond_to(:branches)
   end
 
-  it "should be able to find the network of a repository" do
-    subject.should respond_to(:network)
+  it "should be able to find the forks of a repository" do
+    subject.should respond_to(:forks)
   end
 
   it "should be able to find the last commits of a repository branch" do

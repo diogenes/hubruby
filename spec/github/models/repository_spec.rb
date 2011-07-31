@@ -24,8 +24,8 @@ describe GitHub::Repository do
     subject.branches.should_not be_empty
   end
 
-  it "can show its network" do
-    subject.network.should_not be_empty
+  it "can show its forks" do
+    subject.forks.should_not be_empty
   end
 
   it "should be able to find a commit by id" do
