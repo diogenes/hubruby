@@ -3,9 +3,7 @@ require 'github/models/base_model'
 module GitHub
   class Repository < BaseModel
     def self.repositories_from_hashes(h)
-      h.inject([]) do |repositories, repository_attrs|
-        repositories << from_hash(repository_attrs)
-      end
+      h.map { |repository_attrs| from_hash(repository_attrs) }
     end
 
     def branches

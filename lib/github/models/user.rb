@@ -3,9 +3,7 @@ require 'github/models/base_model'
 module GitHub
   class User < BaseModel
     def self.users_from_logins(logins)
-      logins.inject([]) do |users, login|
-        users << from_hash(:login => login)
-      end
+      logins.map { |l| from_hash(:login => l) }
     end
 
     def following

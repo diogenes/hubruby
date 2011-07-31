@@ -12,9 +12,7 @@ module GitHub
     end
 
     def self.commits_from_hashes(h, repository)
-      h.inject([]) do |commits, commit_attrs|
-        commits << from_hash(commit_attrs, repository)
-      end
+      h.map { |commit_attrs| from_hash(commit_attrs, repository) }
     end
 
     def id
@@ -30,9 +28,9 @@ module GitHub
     end
 
     def parents
-      @parents ||= @table[:parents].inject([]) do |commits, parent_attrs|
-                     commits << self.repository.commit(parent_attrs['id'])
-                   end
+      @parents ||= @table[:parents].map do |parent_attrs|
+        repository.commit(parent_attrs['id'])
+      end
     end
-  end # User
+  end
 end
