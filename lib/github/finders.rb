@@ -51,17 +51,17 @@ module GitHub
 
     def user_organizations(login)
       h = json("/users/#{login}/orgs")
-      h.collect{|o| Organization.from_hash(o) }
+      h.map {|o| Organization.from_hash(o) }
     end
 
     def organization_public_repositories(organization_name)
       h = json("/orgs/#{organization_name}/repos")
-      h.collect{|r| Repository.from_hash(r) }
+      h.map {|r| Repository.from_hash(r) }
     end
 
     def organization_public_members(organization_name)
       h = json("/orgs/#{organization_name}/members")
-      h.collect{|u| User.from_hash(u) }
+      h.map {|u| User.from_hash(u) }
     end
 
     private
