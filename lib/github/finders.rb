@@ -36,7 +36,7 @@ module GitHub
 
     def network(login, repository_name)
       j = json("/repos/show/#{login}/#{repository_name}/network", :network)
-      Repository.repositories_from_hashes(j, Repository.new(:owner => login, :name => repository_name))
+      Repository.repositories_from_hashes(j)
     end
 
     def commits(login, repository_name, branch = 'master')
