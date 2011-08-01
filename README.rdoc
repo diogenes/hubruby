@@ -4,19 +4,21 @@
 
 == DESCRIPTION:
 
-A simple Ruby library for accessing the current GitHub API (v2).
+A simple Ruby library for accessing the current GitHub API (v3).
 
 == SYNOPSIS:
 
   user = GitHub.user('diogenes')
   user.repositories
+  user.organizations
   user.following
   user.followers
   user.watched
 
   repository = GitHub.repository('aslakhellesoy', 'cucumber')
+  repository.owner
   repository.branches
-  repository.network
+  repository.forks
 
 == REQUIREMENTS:
 
@@ -30,7 +32,7 @@ A simple Ruby library for accessing the current GitHub API (v2).
 
 (The MIT License)
 
-Copyright (c) 2010 Diógenes Falcão
+Copyright (c) 2011 Diógenes Falcão
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
