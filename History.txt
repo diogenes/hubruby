@@ -5,3 +5,7 @@
 === 0.0.4 2010-09-03
 
   * Refactorings and Specifications
+
+=== 0.1.0 2011-07-31
+
+  * Initial support to the GitHub API v3

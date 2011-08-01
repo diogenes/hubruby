@@ -11,10 +11,11 @@ Hoe.plugin :newgem
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'hubruby' do
+  self.summary = 'A simple Ruby library to access the current GitHub API (v3)'
   self.developer 'Diógenes Falcão', 'diogenes {d-o-t} araujo {at} gmail.com'
   self.rubyforge_name = self.name
   self.extra_deps     = [['httparty','= 0.6.1']]
-  self.version = '0.0.4'
+  self.version = '0.1.0'
 end
 
 require 'newgem/tasks'
