@@ -1,5 +1,5 @@
-require 'github/finders'
+require 'github/dsl'
 
 module GitHub
-  extend Finders
+  extend DSL
 end

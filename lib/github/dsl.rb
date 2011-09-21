@@ -1,5 +1,5 @@
 module GitHub
-  module Finders
+  module DSL
     def user(login)
       j = json("/users/#{login}")
       User.from_hash(j)
