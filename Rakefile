@@ -1,25 +1,16 @@
-require 'rubygems'
-gem 'hoe', '>= 2.1.0'
-require 'hoe'
-require 'fileutils'
-require './lib/hubruby'
+require 'rake/rdoctask'
+require 'rspec/core/rake_task'
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
-Hoe.plugin :newgem
-# Hoe.plugin :website
-# Hoe.plugin :cucumberfeatures
+desc 'Run all RSpec tests'
+RSpec::Core::RakeTask.new(:spec)
 
-# Generate all the Rake tasks
-# Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.spec 'hubruby' do
-  self.summary = 'A simple Ruby library to access the current GitHub API (v3)'
-  self.developer 'Diógenes Falcão', 'diogenes {d-o-t} araujo {at} gmail.com'
-  self.rubyforge_name = self.name
-  self.extra_deps     = [['httparty','= 0.6.1']]
-  self.version = '0.1.0'
+task :default => :spec
+task :build => :spec
+
+Rake::RDocTask.new do |rd|
+  rd.main = "README.rdoc"
+  rd.rdoc_files.include("README.rdoc", "lib/**/*.rb")
+  rd.rdoc_dir = 'doc'
 end
-
-require 'newgem/tasks'
-Dir['tasks/**/*.rake'].each { |t| load t }
-
-# remove_task :default
-task :default => [:spec]
