@@ -7,7 +7,7 @@ module GitHub
     end
 
     def owner
-      @owner ||= GitHub::User.new(@table[:owner])
+      @owner ||= GitHub::User.new(:login => @table[:owner])
     end
 
     def branches
