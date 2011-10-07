@@ -64,10 +64,15 @@ module GitHub
       h.map {|u| User.from_hash(u) }
     end
 
+    def gists(login)
+      h = json("/users/#{login}/gists")
+      h.map {|g| Gist.from_hash(g) }
+    end
+
     private
 
     def json(path)
       HTTParty.get('https://api.github.com' << path).parsed_response
     end
-  end # Finders
-end # GitHub
+  end
+end

@@ -40,4 +40,8 @@ describe GitHub do
   it "should be able to find a commit" do
     subject.should respond_to(:commit)
   end
+
+  it "should be able to find gists of an user" do
+    subject.should respond_to(:gists)
+  end
 end
