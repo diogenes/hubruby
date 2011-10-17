@@ -3,9 +3,9 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 require 'rubygems'
 require 'httparty'
+require 'version'
 
 module Hubruby
-  VERSION = '0.1.1'
 
   def self.require_all
     Dir[File.join(File.dirname(__FILE__), %W(github ** *.rb))].each do |f|
